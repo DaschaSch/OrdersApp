@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="OrdersApp.Views.MaterialPage"
+             x:Name="BrowseMaterialPage">
+
+    <StackLayout>
+        <SearchBar TextChanged="SearchBar_TextChanged" />
+        <ListView x:Name="materialsList"
+              HasUnevenRows="True"
+              ItemsSource="{Binding Materials}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout>
+                                <Label Text="{Binding Name}" FontSize="Large" />
+                                <Label Text="{Binding AdditionalInformation}" />
+                                <Label Text="{Binding Category}" />
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
+            <Button Clicked="AddItem" Text="Добавить выбранный элемент" />
+        </StackLayout>
+    </StackLayout>
+    
+</ContentPage>
